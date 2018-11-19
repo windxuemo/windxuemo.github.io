@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>终端文件管理 -- Ranger | 空荡的箱子</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-129331352-1','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">终端文件管理 -- Ranger</h1><a id="logo" href="/.">空荡的箱子</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/sponsor/"><i class="fa fa-snowflake-o"> 赞助</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">终端文件管理 -- Ranger</h1><div class="post-meta">Nov 19, 2018<span> | </span><span class="category"><a href="/categories/工具/">工具</a></span></div><div class="post-content"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>  Ranger是一个基于ncurses库的命令行文件管理器，有一个简单而简约的用户界面。它使用基本的vi式的导航键，能够预览文件和用默认程序(可以配置默认程序打开图片，电影，pdf等)打开它们。<br>官方网站: <a href="http://ranger.nongnu.org/" target="_blank" rel="noopener">http://ranger.nongnu.org/</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>从这个图片中，你可以看到有三列，中间那一列是当前光标所操控的位置，左边那一列是当前位置的父目录，右边那一列是当前目录的所有子项，子目录和目录里的内容。例如，如上图所示，中间一列表明此时我的光标移动到lib目录，左边那一列表明lib目录是在usr目录下的，也就是说中间一列显示的是usr目录下的内容，而右边那一列则是随着光标的移动，而显示具体的内容，此时是显示的lib目录下的内容。</p>
+<p>光标移动操作就是典型的vi模式，hjkl，代表四个方位键</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>ubuntu 安装 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ranger</span><br></pre></td></tr></table></figure>
+<p>archlinux 安装 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S ranger</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>配置文件</li>
+</ul>
+<p>首先复制配置文件到主目录:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ranger --copy-config=all</span><br></pre></td></tr></table></figure>
+<p>然后自己到~/.config/ranger中配置各种选项即可.</p>
+<ul>
+<li>配置ranger</li>
+</ul>
+<p>在～/.config/ranger中有ranger的配置文件.</p>
+<p>找到文件scope.sh中, 在externsions部分注释掉不想预览的文件类型, 在那行上面添加”#”注释掉即可. ranger在预览rar等压缩包时会运行得比较慢.</p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>下面列出常用操作的快捷键<br>?  查看帮助</p>
+<ul>
+<li><p>浏览:<br>H 后退<br>L 前进<br>gg 跳到顶端<br>G  跳到底端<br>f 查找<br>/ 搜素<br>g 快速进入目录</p>
+</li>
+<li><p>编辑:<br>yy      复制<br>dd      剪切<br>pp      粘贴<br>delete  删除<br>cw      重命名<br>Ctrl-f  向下翻页<br>Ctrl-b  向上翻页</p>
+</li>
+<li><p>书签:<br>m       新建书签<br>`       打开书签<br>um      删除书签</p>
+</li>
+<li><p>标签:<br>gn / C-n        新建标签</p>
+<p>TAB / S-TAB     切换标签<br>A-Right, A-Left 切换标签<br>gc / C-w        关闭标签<br>zh              显示隐藏文件<br>zp              打开/关闭文件预览功能<br>zP              打开目录预览功能</p>
+</li>
+<li><p>选择:<br>空格    单选<br>v       反选<br>V       进入/退出多选模式</p>
+</li>
+<li><p>其他:<br>zf      过滤器(如过滤pdf文件, zf+pdf,回车)<br>S 在当前目录打开终端</p>
+<p>z(*)    改变设置, *表示在弹出选项中的选择<br>o(*)    改变排序方式<br>! / s   使用shell命令(！shell -w ls -hl %s,%s代表当前被选中的文件)<br>: 使用ranger命令(3? 查看可用命令)<br>:set colorscheme snow 设置颜色模式</p>
+</li>
+</ul>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p>演示视频<a href="https://www.bilibili.com/video/av28860276/" target="_blank" rel="noopener">https://www.bilibili.com/video/av28860276/</a></p>
+</div><div class="tags"><a href="/tags/Linux/">Linux</a><a href="/tags/文件管理/">文件管理</a></div><div class="post-nav"><a class="next" href="/2018/11/16/PDF阅读器/">PDF阅读器 -- Zathura</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/文件管理/" style="font-size: 15px;">文件管理</a> <a href="/tags/生活方式/" style="font-size: 15px;">生活方式</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/任务管理/" style="font-size: 15px;">任务管理</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/19/ranger/">终端文件管理 -- Ranger</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/PDF阅读器/">PDF阅读器 -- Zathura</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/神之编辑器-Emacs/">神之编辑器 -- Emacs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/计划/">计划</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 -黯然销魂默</div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
